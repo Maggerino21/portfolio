@@ -78,12 +78,10 @@ body {
     padding: 8px 16px; /* Add some padding around the links */
     display: block; /* Make the entire area clickable */
     text-align: center; /* Center the text inside the link */
-    transition: color 0.7s ease, opacity 0.7s ease;
+    transition: color 0.3s ease, opacity 0.7s ease;
   }
   
-  .navbar a:hover {
-    text-decoration: underline; /* Underline the link on hover */
-  }
+  
 
   .navbar:hover {
     background-color: white;
@@ -91,5 +89,9 @@ body {
 
   .navbar:hover a {
     color: black;
+  }
+
+  .navbar:hover a:hover {
+    color: darkgrey;
   }
   

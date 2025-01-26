@@ -11,7 +11,7 @@ export default function Home() {
       </section>
 
       <section id="about" className="section">
-        <h1>About Section</h1>
+        <h1>About Me</h1>
         <p>Information about the portfolio or yourself</p>
       </section>
 
