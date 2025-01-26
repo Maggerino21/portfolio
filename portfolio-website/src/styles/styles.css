@@ -1,0 +1,95 @@
+
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;  /* This will enable smooth scrolling */
+  }
+  
+  h1, h2 {
+    text-align: center;
+  }
+  
+  section {
+    height: 100vh;  /* Makes each section take up the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  #home {
+    background-color: #f0f0f0;
+  }
+  
+  #about {
+    background-color: #e0e0e0;
+  }
+  
+  #services {
+    background-color: #d0d0d0;
+  }
+  
+  #contact {
+    background-color: #c0c0c0;
+  }
+  
+  /* Additional styling for the Navbar */
+  nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+  }
+  
+  nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+
+.navbar {
+    position: fixed; /* Fix the navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Make the navbar span the entire width */
+    background-color: transparent; /* Dark background color */
+    padding: 10px 0; /* Some padding around the navbar */
+    z-index: 1000; /* Ensure it stays on top of other content */
+    transition: background-color 0.7s ease, opacity 0.7s ease; /* Transition for smooth background color change */
+  }
+  
+  .navbar ul {
+    display: flex; /* Display the navbar items in a row */
+    justify-content: center; /* Center the navbar items horizontally */
+    list-style: none; /* Remove the default list bullets */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+  }
+  
+  .navbar li {
+    margin: 0 15px; /* Space between navbar items */
+  }
+  
+  .navbar a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 18px; /* Font size for the links */
+    padding: 8px 16px; /* Add some padding around the links */
+    display: block; /* Make the entire area clickable */
+    text-align: center; /* Center the text inside the link */
+    transition: color 0.7s ease, opacity 0.7s ease;
+  }
+  
+  .navbar a:hover {
+    text-decoration: underline; /* Underline the link on hover */
+  }
+
+  .navbar:hover {
+    background-color: white;
+  }
+
+  .navbar:hover a {
+    color: black;
+  }
+  
