@@ -1,5 +1,3 @@
-
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -10,10 +8,16 @@ body {
   h1, h2 {
     text-align: center;
   }
+
+  h1 {
+    font-size: 54px;
+    margin-bottom: 5px;
+  }
   
   section {
     height: 100vh;  /* Makes each section take up the full viewport height */
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
@@ -35,13 +39,7 @@ body {
     background-color: #c0c0c0;
   }
   
-  /* Additional styling for the Navbar */
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    display: block;
-  }
+
   
   nav ul li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
@@ -78,10 +76,10 @@ body {
     padding: 8px 16px; /* Add some padding around the links */
     display: block; /* Make the entire area clickable */
     text-align: center; /* Center the text inside the link */
-    transition: color 0.3s ease, opacity 0.7s ease;
+    transition: color 0.4s ease, opacity 0.7s ease;
   }
   
-  
+
 
   .navbar:hover {
     background-color: white;
@@ -93,5 +91,81 @@ body {
 
   .navbar:hover a:hover {
     color: darkgrey;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  #home {
+    background-color: lightcoral;
+  }
+  
+  btnOne {
+    background-color: transparent;
+    
+  }
+  
+  .btn-style701 {
+    position: relative;
+      border: none;
+      color: #dd6395; /* Replacing $btn-color */
+  }
+  .btn-style701 span {
+      width: 100%;
+      display: block;
+      position: relative;
+  }
+  .btn-style701::before,
+  .btn-style701::after,
+  .btn-style701 span::before,
+  .btn-style701 span::after {
+      width: 8px; /* Replacing $size */
+      height: 8px; /* Replacing $size */
+      position: absolute;
+      transition: all 0.5s;
+      border: 3px solid #dd6395; /* Replacing $btn-color */
+      opacity: 0;
+      content: "";
+  }
+  .btn-style701::before {
+      top: 0;
+      left: 0;
+      border-right: none;
+      border-bottom: none;
+      transform: translate(-50%, -50%); /* Replacing $offset */
+  }
+  .btn-style701::after {
+      bottom: 0;
+      left: 0;
+      border-right: none;
+      border-top: none;
+      transform: translate(-50%, 50%); /* Replacing $offset */
+  }
+  .btn-style701 span::before {
+      top: 0;
+      right: 0;
+      border-left: none;
+      border-bottom: none;
+      transform: translate(50%, -50%); /* Replacing $offset */
+  }
+  .btn-style701 span::after {
+      bottom: 0;
+      right: 0;
+      border-left: none;
+      border-top: none;
+      transform: translate(50%, 50%); /* Replacing $offset */
+  }
+  .btn-style701:hover {
+      font-size: 16.5px;
+      color: #dd2470; /* Replacing $btn-hover-color */
+  }
+  .btn-style701:hover::before,
+  .btn-style701:hover::after,
+  .btn-style701 span:hover::before,
+  .btn-style701 span:hover::after {
+      opacity: 1;
+      border-color: #dd2470; /* Replacing $btn-hover-color */
+      transform: translate(0%, 0%);
   }
   
