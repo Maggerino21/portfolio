@@ -34,7 +34,7 @@ export default function Home() {
     <div>
       <Navbar />
       <section id="home" className="section">
-        <h1>Hello! I'm Magne..</h1>
+        <h1>Hello! I'm Magne....</h1>
         <h2>I am a...</h2>
 
         <TypewriterEffect />
