@@ -1,3 +1,6 @@
+@import "tailwindcss";
+
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -11,20 +14,37 @@ body {
 
   h1 {
     font-size: 54px;
-    margin-bottom: 5px;
+    color: #919199;
+    margin-bottom: 15px;
+    font-style: normal;
+    font-weight: bolder;
+  }
+
+  h2 {
+    font-size: 30px;
   }
   
+  h3 {
+    font-size: 20px;
+  }
   section {
     height: 100vh;  /* Makes each section take up the full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
   }
   
   #home {
-    background-color: #f0f0f0;
+    background-color: #09182f;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 400px;
+    padding-top: 300px;
   }
   
   #about {
@@ -59,7 +79,7 @@ body {
   
   .navbar ul {
     display: flex; /* Display the navbar items in a row */
-    justify-content: center; /* Center the navbar items horizontally */
+    justify-content: right; /* Center the navbar items horizontally */
     list-style: none; /* Remove the default list bullets */
     margin: 0; /* Remove default margin */
     padding: 0; /* Remove default padding */
@@ -70,9 +90,10 @@ body {
   }
   
   .navbar a {
-    color: white; /* White text color */
+    color: rgb(165, 166, 180); /* White text color */
     text-decoration: none; /* Remove underline from links */
-    font-size: 18px; /* Font size for the links */
+    font-size: 20px; /* Font size for the links */
+    font-weight: bold;
     padding: 8px 16px; /* Add some padding around the links */
     display: block; /* Make the entire area clickable */
     text-align: center; /* Center the text inside the link */
@@ -96,76 +117,3 @@ body {
   html {
     scroll-behavior: smooth;
   }
-
-  #home {
-    background-color: lightcoral;
-  }
-  
-  btnOne {
-    background-color: transparent;
-    
-  }
-  
-  .btn-style701 {
-    position: relative;
-      border: none;
-      color: #dd6395; /* Replacing $btn-color */
-  }
-  .btn-style701 span {
-      width: 100%;
-      display: block;
-      position: relative;
-  }
-  .btn-style701::before,
-  .btn-style701::after,
-  .btn-style701 span::before,
-  .btn-style701 span::after {
-      width: 8px; /* Replacing $size */
-      height: 8px; /* Replacing $size */
-      position: absolute;
-      transition: all 0.5s;
-      border: 3px solid #dd6395; /* Replacing $btn-color */
-      opacity: 0;
-      content: "";
-  }
-  .btn-style701::before {
-      top: 0;
-      left: 0;
-      border-right: none;
-      border-bottom: none;
-      transform: translate(-50%, -50%); /* Replacing $offset */
-  }
-  .btn-style701::after {
-      bottom: 0;
-      left: 0;
-      border-right: none;
-      border-top: none;
-      transform: translate(-50%, 50%); /* Replacing $offset */
-  }
-  .btn-style701 span::before {
-      top: 0;
-      right: 0;
-      border-left: none;
-      border-bottom: none;
-      transform: translate(50%, -50%); /* Replacing $offset */
-  }
-  .btn-style701 span::after {
-      bottom: 0;
-      right: 0;
-      border-left: none;
-      border-top: none;
-      transform: translate(50%, 50%); /* Replacing $offset */
-  }
-  .btn-style701:hover {
-      font-size: 16.5px;
-      color: #dd2470; /* Replacing $btn-hover-color */
-  }
-  .btn-style701:hover::before,
-  .btn-style701:hover::after,
-  .btn-style701 span:hover::before,
-  .btn-style701 span:hover::after {
-      opacity: 1;
-      border-color: #dd2470; /* Replacing $btn-hover-color */
-      transform: translate(0%, 0%);
-  }
-  

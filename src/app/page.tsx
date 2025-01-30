@@ -11,7 +11,7 @@ const TypewriterEffect = () => {
       <h2>
         <ReactTyped
           strings={[
-            "Fullstack Developer",
+            "Twisted fucking psychopath",
             "crazy fuck",
             "Web Developer",
             "Tech Enthusiast",
@@ -34,7 +34,8 @@ export default function Home() {
     <div>
       <Navbar />
       <section id="home" className="section">
-        <h1>Hello! I'm Magne....</h1>
+        <h3>Hello, my name is</h3>
+        <h1>Magne</h1>
         <h2>I am a...</h2>
 
         <TypewriterEffect />

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.0.1",
     "bootstrap": "^5.3.3",
     "next": "15.1.6",
     "react": "^19.0.0",
@@ -26,7 +27,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
     "postcss": "^8.5.1",
-    "tailwindcss": "^4.0.0",
+    "tailwindcss": "^4.0.1",
     "typescript": "^5"
   }
 }
