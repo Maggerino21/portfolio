@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playwrite+IN:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -40,3 +47,212 @@ a {
     color-scheme: dark;
   }
 }
+
+
+/* You can adjust these values to position the link exactly where you want it */
+.bottom-10 {
+  bottom: 2.5rem;
+}
+
+/* Optional hover effect */
+.hover\:text-gray-200:hover {
+  color: #e5e7eb;
+}
+
+
+
+/*--------------*/
+h3 {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 20px;
+  color: grey;
+  transition: color 0.4s ease, opacity 0.7s ease;
+  border-radius: 12px;
+  border: 1px solid rgb(255, 255, 255);  /* This is the shorthand for all border properties */
+  /* Or you can write it separately as:
+  border-width: 1px;
+  border-style: solid;
+  border-color: ghostwhite;
+  */
+  padding: 12px 20px;
+  margin: 10px 0;
+  display: inline-block;
+  width: fit-content;
+}
+
+h3:hover {
+  color: white;
+}
+
+h4 {
+  font-family: 'Roboto Mono', sans-serif;
+  font-size: 30px;
+}
+
+h5 {
+  font-family: 'Playwrite IN', sans-serif;
+  text-align: center;
+}
+
+.typed-text {
+  font-family: 'PT Serif';
+}
+
+@font-face {
+  font-family: "Geist";
+  src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --size: 20px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  background: hsl(0, 0%, 6%);
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  font-size: 54px;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+
+section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+}
+
+/* =========== HOME SECTION =========== */
+#home {
+  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding-left: clamp(20px, 15%, 300px);
+  padding-top: 300px;
+  overflow: hidden; /* Ensure background effect stays within bounds */
+}
+
+.link-container {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: auto;
+}
+
+/* Background effect for home */
+#home .el {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(from 180deg at 50% 70%, 
+    hsla(0,0%,98%,1) 0deg, #eec32d 72deg, #ec4b4b 144deg, 
+    #709ab9 216deg, #4dffbf 288deg, hsla(0,0%,98%,1) 1turn);
+  mask:
+    radial-gradient(circle at 50% 50%, white 2px, transparent 2.5px) 
+    50% 50% / var(--size) var(--size),
+    url("https://assets.codepen.io/605876/noise-mask.png") 
+    256px 50% / 256px 256px;
+  mask-composite: intersect;
+  animation: flicker 20s infinite linear;
+  z-index: -1;
+}
+
+
+
+/* Keeps text above the background effect */
+.home-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Flicker animation */
+@keyframes flicker {
+  to {
+    mask-position: 50% 50%, 0 50%;
+  }
+}
+
+/* =========== OTHER SECTIONS =========== */
+#about {
+  background-color: #e0e0e0;
+}
+
+#services {
+  background-color: #d0d0d0;
+}
+
+#contact {
+  background-color: #c0c0c0;
+}
+
+
+
+
+/* =========== NAVBAR =========== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  padding: 10px 0;
+  z-index: 1000;
+  transition: background-color 0.2s ease, opacity 0.7s ease;
+  justify-content: center;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
+  font-family: 'Roboto Mono';
+  color: rgb(165, 166, 180);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight:lighter;
+  padding: 8px 16px;
+  display: block;
+  text-align: center;
+  transition: color 0.4s ease, opacity 0.7s ease;
+}
+
+
+.navbar a:hover {
+  color: white;
+}
+
+

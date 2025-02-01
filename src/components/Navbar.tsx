@@ -1,21 +1,21 @@
 import Link from 'next/link';
-import "../styles/styles.css";
+import "../styles/globals.css";
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <ul>
         <li>
-          <Link href="#home">HOME</Link>
+          <Link href="#home">Home</Link>
         </li>
         <li>
-          <Link href="#about">ABOUT</Link>
+          <Link href="#about">About</Link>
         </li>
         <li>
-          <Link href="#projects">PROJECTS</Link>
+          <Link href="#projects">Projects</Link>
         </li>
         <li>
-          <Link href="#contact">CONTRACT</Link>
+          <Link href="#contact">Contact</Link>
         </li>
       </ul>
     </nav>
