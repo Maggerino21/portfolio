@@ -4,6 +4,7 @@ import '../styles/globals.css'
 import React from "react";
 import { ReactTyped }  from "react-typed";
 import Link from 'next/link';
+import AboutSection from "@/components/AboutSection";
 
 
 
@@ -57,11 +58,9 @@ export default function Home() {
 
         
         </section>
-      
-      <section id="about" className="section">
-        <h1>About Me</h1>
-        <p>Information about the portfolio or yourself</p>
-      </section>
+      <section id="about">
+        <AboutSection />
+        </section>
 
       <section id="projects" className="section">
         <h1>Projects</h1>
