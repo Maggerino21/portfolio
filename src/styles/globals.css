@@ -134,6 +134,13 @@ h2 {
   font-size: 30px;
 }
 
+h6 {
+  font-size: 30px;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-family: "Roboto Mono";
+}
 
 section {
   height: 100vh;
@@ -205,9 +212,6 @@ section {
   background-color: #d0d0d0;
 }
 
-#contact {
-  background-color: #c0c0c0;
-}
 
 
 
