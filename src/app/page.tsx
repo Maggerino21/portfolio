@@ -6,6 +6,7 @@ import { ReactTyped }  from "react-typed";
 import Link from 'next/link';
 import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
+import ProjectsSection from "@/components/ProjectsSection";
 
 
 
@@ -64,8 +65,7 @@ export default function Home() {
         </section>
 
       <section id="projects" className="section">
-        <h1>Projects</h1>
-        <p>Details about the services offered</p>
+        <ProjectsSection />
       </section>
 
       <section id="contact" className="section">
