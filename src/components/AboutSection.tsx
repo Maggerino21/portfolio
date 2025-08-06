@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Draggable from 'react-draggable';
-import { Code, Brain, Palette, Terminal, ChevronDown, ChevronUp } from 'lucide-react';
+import { Palette, ChevronDown, ChevronUp, CircleUserRound, Hammer, Volleyball, Braces } from 'lucide-react';
 
 interface CardData {
   icon: React.ReactNode;
@@ -12,6 +12,25 @@ interface CardData {
     y: number;
   };
 }
+
+// Helper function to format text with colored first words
+const formatExpandedContent = (text: string) => {
+  // Split the text into sentences
+  const sentences = text.split(/(?<=\.) /).filter(Boolean);
+  
+  return sentences.map((sentence, index) => {
+    // Split each sentence into first word and rest
+    const [firstWord, ...rest] = sentence.split(/\s+/);
+    
+    return (
+      <React.Fragment key={index}>
+        <span className="text-blue-400">{firstWord}</span>
+        {rest.length > 0 && ' ' + rest.join(' ')}
+        {index < sentences.length - 1 && ' '}
+      </React.Fragment>
+    );
+  });
+};
 
 const AboutSection: React.FC = () => {
   const [expandedStates, setExpandedStates] = useState<{ [key: number]: boolean }>({});
@@ -44,29 +63,29 @@ const AboutSection: React.FC = () => {
 
   const cards: CardData[] = [
     {
-      icon: <Terminal className="w-6 h-6" />,
-      title: "Full Stack Development",
-      description: "Building end-to-end applications with modern technologies",
-      expandedContent: "Experienced in React, Next.js, Node.js, and various databases. I focus on creating scalable and maintainable applications with clean architectures and modern best practices.",
+      icon: <CircleUserRound className="w-6 h-6" />,
+      title: "Who am i?",
+      description: "A full stack developer with a passion for building and learning!",
+      expandedContent: "I am 26 year old developer that loves to learn new things.",
       defaultPosition: { x: 50, y: 5 }
     },
     {
-      icon: <Brain className="w-6 h-6" />,
-      title: "Machine Learning",
+      icon: <Hammer className="w-6 h-6" />,
+      title: "What am i working on?",
       description: "Exploring ML algorithms and practical applications",
       expandedContent: "Working with PyTorch and TensorFlow to develop and implement machine learning models. Particularly interested in computer vision and natural language processing applications.",
       defaultPosition: { x: 400, y: 50 }
     },
     {
-      icon: <Palette className="w-6 h-6" />,
-      title: "Design",
+      icon: <Braces className="w-6 h-6" />,
+      title: "Technologies i know",
       description: "Creating intuitive and aesthetic user interfaces",
       expandedContent: "Combining principles of user experience with modern design trends. Proficient in tools like Figma and experienced in implementing responsive, accessible designs.",
       defaultPosition: { x: 750, y: 5 }
     },
     {
-      icon: <Code className="w-6 h-6" />,
-      title: "Technical Skills",
+      icon: <Volleyball className="w-6 h-6" />,
+      title: "Other Hobbies",
       description: "Multiple programming languages and modern tools",
       expandedContent: "Proficient in JavaScript/TypeScript, Python, and various frameworks. Strong foundation in algorithms, data structures, and software design patterns.",
       defaultPosition: { x: 1100, y: 50 }
@@ -75,7 +94,7 @@ const AboutSection: React.FC = () => {
 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-gray-900/30">
-      <h2 className="text-4xl font-mono text-center pt-8 mb-16">About Me</h2>
+      <h6>About me</h6>
       
       {cards.map((card, index) => (
         <Draggable
@@ -111,7 +130,9 @@ const AboutSection: React.FC = () => {
               }`}
             >
               <div className="p-4 border-t border-gray-700 bg-gray-800/50">
-                <p className="text-gray-300">{card.expandedContent}</p>
+                <p className="text-gray-300">
+                  {formatExpandedContent(card.expandedContent)}
+                </p>
               </div>
             </div>
           </div>
