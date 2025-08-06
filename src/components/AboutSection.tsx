@@ -30,7 +30,7 @@ const AboutSection: React.FC = () => {
   };
 
   const toggleExpand = (index: number, event: React.MouseEvent) => {
-    event.stopPropagation(); // Prevent event from bubbling up to draggable
+    event.stopPropagation();
     bringToFront(index);
     setExpandedStates(prev => ({
       ...prev,
