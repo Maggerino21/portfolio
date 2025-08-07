@@ -1,143 +1,142 @@
 import React, { useState } from 'react';
-import Draggable from 'react-draggable';
-import { Palette, ChevronDown, ChevronUp, CircleUserRound, Hammer, Volleyball, Braces } from 'lucide-react';
+import { CircleUserRound, Hammer, Volleyball, Braces } from 'lucide-react';
 
-interface CardData {
+interface QuadrantData {
   icon: React.ReactNode;
   title: string;
   description: string;
   expandedContent: string;
-  defaultPosition: {
-    x: number;
-    y: number;
-  };
+  position: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
 }
 
-// Helper function to format text with colored first words
-const formatExpandedContent = (text: string) => {
-  // Split the text into sentences
-  const sentences = text.split(/(?<=\.) /).filter(Boolean);
-  
-  return sentences.map((sentence, index) => {
-    // Split each sentence into first word and rest
-    const [firstWord, ...rest] = sentence.split(/\s+/);
-    
-    return (
-      <React.Fragment key={index}>
-        <span className="text-blue-400">{firstWord}</span>
-        {rest.length > 0 && ' ' + rest.join(' ')}
-        {index < sentences.length - 1 && ' '}
-      </React.Fragment>
-    );
-  });
-};
-
 const AboutSection: React.FC = () => {
-  const [expandedStates, setExpandedStates] = useState<{ [key: number]: boolean }>({});
-  const [zIndexes, setZIndexes] = useState<{ [key: number]: number }>({
-    0: 1, 1: 1, 2: 1, 3: 1
-  });
-  const [currentMaxZ, setCurrentMaxZ] = useState(1);
+  const [hoveredQuadrant, setHoveredQuadrant] = useState<string | null>(null);
 
-  const bringToFront = (index: number) => {
-    const newZ = currentMaxZ + 1;
-    setZIndexes(prev => ({
-      ...prev,
-      [index]: newZ
-    }));
-    setCurrentMaxZ(newZ);
-  };
-
-  const toggleExpand = (index: number, event: React.MouseEvent) => {
-    event.stopPropagation();
-    bringToFront(index);
-    setExpandedStates(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
-  };
-
-  const handleDragStart = (index: number) => {
-    bringToFront(index);
-  };
-
-  const cards: CardData[] = [
+  const quadrants: QuadrantData[] = [
     {
-      icon: <CircleUserRound className="w-6 h-6" />,
+      icon: <CircleUserRound className="w-8 h-8" />,
       title: "Who am i?",
       description: "A full stack developer with a passion for building and learning!",
-      expandedContent: "I am 26 year old developer that loves to learn new things.",
-      defaultPosition: { x: 50, y: 5 }
+      expandedContent: "I am 26 year old developer that loves to learn new things. Currently based in Norway, I'm constantly exploring new technologies and pushing my boundaries in both frontend and backend development.",
+      position: 'top-left'
     },
     {
-      icon: <Hammer className="w-6 h-6" />,
+      icon: <Hammer className="w-8 h-8" />,
       title: "What am i working on?",
       description: "Exploring ML algorithms and practical applications",
-      expandedContent: "Working with PyTorch and TensorFlow to develop and implement machine learning models. Particularly interested in computer vision and natural language processing applications.",
-      defaultPosition: { x: 400, y: 50 }
+      expandedContent: "I work full time as a developer for an aquaculture company. In my free time i am building Fortuno, a personal finance app. I am also trying to learn more about machine learning and coding AI.",
+      position: 'top-right'
     },
     {
-      icon: <Braces className="w-6 h-6" />,
+      icon: <Braces className="w-8 h-8" />,
       title: "Technologies i know",
-      description: "Creating intuitive and aesthetic user interfaces",
-      expandedContent: "Combining principles of user experience with modern design trends. Proficient in tools like Figma and experienced in implementing responsive, accessible designs.",
-      defaultPosition: { x: 750, y: 5 }
+      description: "Modern tech stack and tools",
+      expandedContent: "Proficient in JavaScript/TypeScript, Python, React, Next.js, Node.js, and various databases. Strong foundation in algorithms, data structures, and software design patterns. Experience with cloud platforms and DevOps.",
+      position: 'bottom-left'
     },
     {
-      icon: <Volleyball className="w-6 h-6" />,
+      icon: <Volleyball className="w-8 h-8" />,
       title: "Other Hobbies",
-      description: "Multiple programming languages and modern tools",
-      expandedContent: "Proficient in JavaScript/TypeScript, Python, and various frameworks. Strong foundation in algorithms, data structures, and software design patterns.",
-      defaultPosition: { x: 1100, y: 50 }
+      description: "Life beyond the code",
+      expandedContent: "My biggest passion outside coding is football. I also work out and love to run. I also enjoy hiking in the Norwegian nature when the weather allows it.",
+      position: 'bottom-right'
     }
   ];
 
+  const getQuadrantClasses = (position: string) => {
+    const baseClasses = "absolute w-1/2 h-1/2 border-gray-700 flex items-center justify-center cursor-pointer transition-all duration-500 overflow-hidden";
+    
+    switch(position) {
+      case 'top-left':
+        return `${baseClasses} top-0 left-0 border-r border-b`;
+      case 'top-right':
+        return `${baseClasses} top-0 right-0 border-l border-b`;
+      case 'bottom-left':
+        return `${baseClasses} bottom-0 left-0 border-r border-t`;
+      case 'bottom-right':
+        return `${baseClasses} bottom-0 right-0 border-l border-t`;
+      default:
+        return baseClasses;
+    }
+  };
+
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-gray-900/30">
-      <h6>About me</h6>
+    <div className="relative min-h-screen w-full bg-gray-900/30 flex flex-col">
+      <h6 className="text-4xl font-mono text-center py-8 text-gray-200">About me</h6>
       
-      {cards.map((card, index) => (
-        <Draggable
-          key={index}
-          defaultPosition={card.defaultPosition}
-          bounds="parent"
-          handle=".handle"
-          onStart={() => handleDragStart(index)}
-        >
-          <div 
-            className="absolute w-72 bg-gray-800/80 backdrop-blur-sm rounded-lg border border-gray-700 overflow-hidden shadow-lg"
-            style={{ zIndex: zIndexes[index] }}
-            onClick={() => bringToFront(index)}
+      <div className="relative flex-1 max-w-7xl mx-auto w-full">
+        {quadrants.map((quadrant, index) => (
+          <div
+            key={index}
+            className={getQuadrantClasses(quadrant.position)}
+            onMouseEnter={() => setHoveredQuadrant(quadrant.position)}
+            onMouseLeave={() => setHoveredQuadrant(null)}
+            style={{
+              background: hoveredQuadrant === quadrant.position 
+                ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%)'
+                : 'transparent'
+            }}
           >
-            <div className="handle p-4 bg-gray-700/50 flex items-center space-x-3 cursor-move">
-              <div className="text-blue-400">
-                {card.icon}
-              </div>
-              <h3 className="text-xl font-mono">{card.title}</h3>
-            </div>
-            <div className="p-4">
-              <p className="text-gray-300">{card.description}</p>
-            </div>
+            {/* Default State - Icon and Title */}
             <div 
-              className="px-4 pb-4 cursor-pointer flex items-center justify-center text-gray-400 hover:text-gray-200"
-              onClick={(e) => toggleExpand(index, e)}
-            >
-              {expandedStates[index] ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-            </div>
-            <div 
-              className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                expandedStates[index] ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'
+              className={`absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 ${
+                hoveredQuadrant === quadrant.position ? 'opacity-0' : 'opacity-100'
               }`}
             >
-              <div className="p-4 border-t border-gray-700 bg-gray-800/50">
-                <p className="text-gray-300">
-                  {formatExpandedContent(card.expandedContent)}
-                </p>
+              <div className="text-blue-400 mb-4">
+                {quadrant.icon}
               </div>
+              <h3 className="text-xl font-mono text-gray-300 text-center mb-2">
+                {quadrant.title}
+              </h3>
+              <p className="text-sm text-gray-500 text-center max-w-xs">
+                {quadrant.description}
+              </p>
             </div>
+
+            {/* Hovered State - Expanded Content */}
+            <div 
+              className={`absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-500 ${
+                hoveredQuadrant === quadrant.position 
+                  ? 'opacity-100 transform scale-100' 
+                  : 'opacity-0 transform scale-95 pointer-events-none'
+              }`}
+            >
+              <div className="text-blue-400 mb-4 transform transition-transform duration-500"
+                style={{
+                  transform: hoveredQuadrant === quadrant.position ? 'scale(1.2)' : 'scale(1)'
+                }}
+              >
+                {quadrant.icon}
+              </div>
+              <h3 className="text-2xl font-mono text-white mb-4 text-center">
+                {quadrant.title}
+              </h3>
+              <p className="text-gray-300 text-center max-w-md leading-relaxed">
+                {quadrant.expandedContent}
+              </p>
+            </div>
+
+            {/* Hover Indicator */}
+            <div 
+              className={`absolute inset-0 border-2 transition-all duration-500 pointer-events-none ${
+                hoveredQuadrant === quadrant.position 
+                  ? 'border-blue-500/50' 
+                  : 'border-transparent'
+              }`}
+            />
           </div>
-        </Draggable>
-      ))}
+        ))}
+
+        {/* Center Lines - Visual Dividers */}
+        <div className="absolute top-0 left-1/2 w-px h-full bg-gray-700 transform -translate-x-1/2 pointer-events-none" />
+        <div className="absolute top-1/2 left-0 w-full h-px bg-gray-700 transform -translate-y-1/2 pointer-events-none" />
+        
+        {/* Center Circle Decoration */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+          <div className="w-4 h-4 bg-gray-900 border-2 border-gray-700 rounded-full" />
+        </div>
+      </div>
     </div>
   );
 };
