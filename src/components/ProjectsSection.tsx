@@ -16,7 +16,6 @@ const ProjectsSection = () => {
       
       <div className="max-w-4xl mx-auto px-8">
         <div className="text-center">
-          {/* Project Image */}
           <div className="mb-6">
             <img
               src={project.image}
@@ -25,12 +24,10 @@ const ProjectsSection = () => {
             />
           </div>
 
-          {/* Project Title */}
           <h3 className="mb-4 inline-block">
             {project.title}
           </h3>
 
-          {/* GitHub Link */}
           <div className="mb-4">
             <a
               href={project.github}
@@ -43,12 +40,10 @@ const ProjectsSection = () => {
             </a>
           </div>
 
-          {/* Description */}
           <p className="text-gray-300 font-mono max-w-2xl mx-auto mb-6 leading-relaxed">
             {project.description}
           </p>
 
-          {/* Tech Stack */}
           <div className="flex flex-wrap justify-center gap-3">
             {project.technologies.map((tech, techIndex) => (
               <span

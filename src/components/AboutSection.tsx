@@ -17,7 +17,7 @@ const AboutSection: React.FC = () => {
       icon: <CircleUserRound className="w-8 h-8" />,
       title: "Who am i?",
       description: "A full stack developer with a passion for building and learning!",
-      expandedContent: "I am 26 year old developer that loves to learn new things. Currently based in Norway, I'm constantly exploring new technologies and pushing my boundaries in both frontend and backend development.",
+      expandedContent: "I am 26 year old developer that loves to learn new things. Currently based in Norway, I'm constantly exploring new technologies and pushing my boundaries in both frontend and backend development. I also drink a lot of coffee.",
       position: 'top-left'
     },
     {
@@ -77,7 +77,6 @@ const AboutSection: React.FC = () => {
                 : 'transparent'
             }}
           >
-            {/* Default State - Icon and Title */}
             <div 
               className={`absolute inset-0 flex flex-col items-center justify-center p-8 transition-opacity duration-500 ${
                 hoveredQuadrant === quadrant.position ? 'opacity-0' : 'opacity-100'
@@ -94,7 +93,6 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Hovered State - Expanded Content */}
             <div 
               className={`absolute inset-0 flex flex-col items-center justify-center p-8 transition-all duration-500 ${
                 hoveredQuadrant === quadrant.position 
@@ -117,7 +115,6 @@ const AboutSection: React.FC = () => {
               </p>
             </div>
 
-            {/* Hover Indicator */}
             <div 
               className={`absolute inset-0 border-2 transition-all duration-500 pointer-events-none ${
                 hoveredQuadrant === quadrant.position 
@@ -128,11 +125,9 @@ const AboutSection: React.FC = () => {
           </div>
         ))}
 
-        {/* Center Lines - Visual Dividers */}
         <div className="absolute top-0 left-1/2 w-px h-full bg-gray-700 transform -translate-x-1/2 pointer-events-none" />
         <div className="absolute top-1/2 left-0 w-full h-px bg-gray-700 transform -translate-y-1/2 pointer-events-none" />
         
-        {/* Center Circle Decoration */}
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
           <div className="w-4 h-4 bg-gray-900 border-2 border-gray-700 rounded-full" />
         </div>
