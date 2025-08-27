@@ -4,8 +4,8 @@ import { Github } from 'lucide-react';
 const ProjectsSection = () => {
   const project = {
     title: "Fortuno",
-    description: "A modern personal portfolio built with Next.js and TypeScript featuring smooth animations and responsive design.",
-    technologies: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    description: "A personal finance app that let's users keep track of their net worth through data from banks, crypto and more.",
+    technologies: ["React", "Next.js", "TypeScript", "Supabase",],
     github: "https://github.com/maggerino21/fortuno",
     image: "/fortunomarketing.png"
   };
