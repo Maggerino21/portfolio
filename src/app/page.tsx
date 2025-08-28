@@ -19,7 +19,9 @@ const TypewriterEffect = () => {
             "Full stack developer",
             "Machine Learning noob",
             "Design enthusiast",
-            "Tech Enthusiast",
+            "Football fan",
+            "Coffee addict",
+            "Lifelong learner"
           ]}
           typeSpeed={100}
           backSpeed={50}
